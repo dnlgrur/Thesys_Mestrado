@@ -1,0 +1,25 @@
+\begin{center}
+  \large{\textbf{Abstract}}
+\end{center}
+
+% FIXME Delete lines from this one until 14th.
+ \ac{fft}/\ac{ifft} algorithms play an important role in modern OFDM-based  wireless 
+communication modems. However, hardware implementation of such algorithms consumes a large amount of resources in FPGA and ASIC devices. This work presents architecture and implementation of a Radix-2 CORDIC-based 
+FFT/IFFT targeting the MR-OFDM mode of a modem compliant with the IEEE802.15.4g standard. Such standard is devoted to Smart Metering 
+Utility Networks (\ac{sunnet}) in the context of LR-WPAN (Low Rate - Wireless Personal 
+Area Networks). Additionally, an Integer Carrier Frequency Offset (ICFO) estimator and corrector method that takes advantage of the 
+OFDM receiver structure and cross-correlation theorem(involving the DFT computation) is proposed, achieving lower hardware complexity to compute the correlation, which is typically used to compute ICFO estimation. The architecture proposed correlates the received data preamble and a reference training field present in the IEEE802.15.4g Physical Protocol Data Unit (\ac{ppdu}). FPGA prototyping results for both blocks as well as comparison with other architectures are presented. This work is part of an ASIC transceiver compliant with the IEEE802.15.4g Standard currently under development and sponsored by Eldorado Research Institute\footnote{This work was Hosted and Funded by Eldorado Research Institute and ``\textit{Conselho Nacional de Desenvolvimento Cient\'{i}fico e Tecnol\'{o}gico} CNPQ''  Under the CI-Brasil Program}.    
+ \noindent
+
+
+
+% The keywords that can be used are listed in
+% \href{http://acervus.unicamp.br/}{Base Acervus}.
+% TODO Inserir o resumo em inglês aqui.
+
+\vspace{.5cm}
+\textbf{Keywords}:
+% FIXME Remover a linha abaixo.
+IEEE802154g, Field Programmable Gate Array \ac{fpga},  Fast Fourier Transform, Discrete Fourier Transform, Integer Carrier Frequency Offset, Frequency Synchronization, Smart Metering Utility Networks, Orthogonal Frequency Division Multiplexing,  Integer Carrier Frequency Offset.
+% TODO Inserir as palavras-chave em inglês aqui.
+%\selectlanguage{brazilian}

@@ -1,0 +1,147 @@
+
+
+
+% \section{Schedule}
+
+% \begin{enumerate}
+% \item Theoretical framework
+
+% \begin{itemize}
+% \item IEEE802.15.4g standard study 
+% \item MR-OFDM  study
+% \item DFT and FFT algorithms and architectures (Review of existing solutions)
+% \item CORDIC 
+% \item Synchronization in OFDM and ICFO
+% \end{itemize}
+
+% \item Reference Model
+% \begin{itemize}
+% \item FFT proposed architecture behavioral fixed point Octave/Matlab Model
+% \item ICFO proposed methodology behavioral model in Octave/Matlab Model
+% \item ICFO validation in IEEE802.15.4g model
+% \end{itemize}
+
+% \item HDL Implementation
+% \begin{itemize}
+% \item FFT description in VHDL
+% \item ICFO description in VHDL
+% \item VHDL Validation
+% \end{itemize}
+
+% \item Debug
+% \begin{itemize}
+% \item FFT RTL debug
+% \begin{itemize}
+% \item Functional Verification
+% \item Integration in IEEE802.15.4g RX/TX
+% \end{itemize}
+
+% \item ICFO RTL debug
+% \begin{itemize}
+% \item Functional Verification
+% \item Integration in IEEE802.15.4g RX
+% \end{itemize}
+% \end{itemize}
+
+% \item FPGA Prototyping
+% \begin{itemize}
+% \item Both algorithms synthesized in FPGA
+% \end{itemize}
+
+% \item Publications/Documentation/Presentations
+% \begin{itemize}
+% \item Part of this research project was submitted and accepted in the 5th Workshop on Circuits and Systems Design (WCAS 2015)\cite{fft_wcas2015}
+% \item Part of this research project was submitted and accepted in the 6th Workshop on Circuits and Systems Design (WCAS 2016)\cite{icfo_wcas2016}
+% \end{itemize}
+
+% \end{enumerate}
+
+
+% \begin{table}[!hbt]
+
+% \centering
+% \caption{Schedule}
+% \label{my-label}
+% \resizebox{\textwidth}{!}{%
+% \begin{tabular}{ccccccccccccccccccccccccccc}
+%  & \textbf{Ano} & \multicolumn{5}{c}{\textbf{2015}} & \multicolumn{12}{c}{\textbf{2016}} & \multicolumn{8}{c}{\textbf{2017}} \\
+% \textit{} & \textbf{Mês} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10} & \textbf{11} & \textbf{12} & \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} \\
+% \textbf{Etapa} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+% \textbf{1} &  & x & x & x & x & x & x &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+% \textbf{2} &  &  &  &  & x & x & x & x & x &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  \\
+% \textbf{3} &  &  &  &  &  &  &  & x & x & x & x & x & x & x & x & x &  &  &  &  &  &  &  &  &  &  \\
+% \textbf{4} &  &  &  &  &  &  &  &  &  &  &  &  & x & x & x & x & x & x &  &  &  &  &  &  &  &  \\
+% \textbf{5} &  &  &  &  &  &  &  &  &  &  &  &  & &  &  &  & x & x & x & x &  &  &  &  &  &  \\
+% \textbf{6} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & x & x & x & x & x & x & x & x & x
+% \end{tabular}
+% }
+% \end{table}
+
+
+
+\chapter{Conclusions}
+
+%The main purpose of this work was to find a practical solution to a real problem faced by the industry, starting from the conceptual model that is believed to adapt to the requirements of a system specification, following the digital design flow that is starting from a model and ending with a prototype and a synthesized design that is integrated and tested with the whole system. 
+
+The main purpose of this work was to find optimal solutions to blocks concerning an ASIC intended system, thus, implementations that show low complexity, low area and good performance where pursued as well as synthesizables architectures since the target is of an ASIC. This work also presented a methodology to ASIC design and hardware prototyping, the process from the conceptual problem definition until the hardware realization of the algorithms are showed.
+
+An FFT/IFFT architecture that meets the system requirements was presented, it allows to process sequences of various sizes as well as forward and inverse Fourier Transforms while minimizing the resource consumption when compared with others FPGA implementations. The architecture presented is an collection of methods found in the literature that simplify the FFT implementation, it was prototyped in FPGA and integrated with the whole MR-OFDM PHY for a working demo that was presented in~\cite{gcce2015}. Also, in~\cite{denise_iscas2016} details of the transceiver main components implemented for preliminary hardware prototyping were presented, including the FFT engine proposed. Logical and physical synthesis showed that the architecture is synthetizable and can be implemented in an ASIC. 
+
+
+%The results obtained show to be favorable, the FFT engine was integrated and tested in the IEEE802.15.4g transceiver, a working demo integrating the proposed FFT engine  was presented in \cite{gcce2015}. In~\cite{denise_iscas2016} details of the transceiver main components implemented for preliminary hardware prototyping were presented, including the FFT engine proposed. 
+
+%The ICFO architecture is currently under test and integration in the transceiver architecture.  
+
+%Both architectures were tested and integrated with the whole PHY showing results from the FPGA prototype, 
+
+%and ICFO are favorable, both solutions are efficient and attains the requirements of the IEEE802.15.4g standard without compromising area and power, since both are a must in this kind of designs.   
+
+Another issue addressed in this work is the synchronization in OFDM systems, more specifically the integer part of the frequency offset. An architecture that shows good performance and takes advantage of the OFDM system saving hardware resources was presented. This FFT based correlation architecture showed low area consumption when compared with similar approaches for the computation of the ICFO, the additional hardware required for the computation (besides the FFT) is minimal if compared with the direct implementation (that is the direct correlation performed in the frequency domain). 
+
+The frequency estimator was also tested under more realistic conditions, i.e. the behavior of the proposed method in presence of STO was also tested, showing poor results. Methods for the STO estimation as well as methods of ICFO estimation that show immunity to the STO where presented, others variables that affect the estimation of both estimators (STO and ICFO) were also considered, as the frequency selective channel. The method proposed showed good results for area consumption and the best performance for channel impairments with a trade-off in computation time, solutions to reduce this architecture delay were also presented.  
+
+ 
+
+
+%This work also presents a more detailed version of the ASIC design flow, showing the stages of the flow and the results obtained in every stage. It shows the implementation process starting from a requirement, in this case the IEEE802.15.4g 
+%OFDM PHY, studying the different options and ending with a design that adapts to the demands of the standard, taking into account the three main variables in ASIC design, that is area, power and speed. The FFT engine chosen focus on simplicity and 
+%reduction of area and power, while at the same time attaining the requirements of the standard. The architecture uses several methods that are believed to simplify the FFT computation problems, well known for being a complex and exhaustive task. 
+
+%Another important contribution is the approach given to the ICFO problem, using the DFT properties the correlation process 
+%is achieved in a simpler manner from a hardware point of view, saving a lot of resources. This shows how hardware can be optimized changing the process computation process from a theoretical level. 
+
+
+%Optimization and future tests are planned for the final version of this work to validate the viability of the proposed approaches. 
+
+\section{Future Work}
+
+As it was shown the STO and ICFO are closely related problems, different methods to the computation of the STO and its performance where shown and although not the optimal solution the finding of a high performance low cost STO estimator could yield optimal performance for the OFDM reception process.  
+
+
+%further research in a low cost robust STO solution would allow the use of the ICFO computation by means of the FFT, method that showed an optimal performance for a low hardware cost. 
+
+%Impact of the current ICFO method proposed in the overall performance of the implementation of the MR-OFDM transceiver is yet to be performed, remembering that the viability of using the method presented depends not only on the isolated performance, but also on the performance of others blocks in the system.   
+% As shown in the simulation in section (zzz) the ICFO shows poor performance in conjunction with not so optimal time synchronization algorithms, a more rigorous study of the performance of this method, its impact in hardware resources and power, study of alternatives to a more solid algorithm that resolves the timing synchronization problem is subject of future works. 
+
+Although the FFT shows good results in its implementation, some level of parallelism could be applied possibly reducing the power consumption in the process, that is, the power consumption with some parallelism goes up, but the time spent performing the computation is reduced. A study of the power consumption, parallelism and computation time will give the optimal solution to the FFT computation. In any case, the architecture and methods proposed in this work can be of benefit for new architectures.   
+ 
+ Since the chip is projected for mobile applications, power consumption is a must. Impact of the different implementation in power is yet to be performed, also, a study of methods for power reduction applied to the FFT computation process could be performed. In~\cite{daCosta2006} and~\cite{924059}, methods for reducing switching activity in the data bus of FFT and similar algorithms are shown.
+ 
+ %if it is proved that the time spent researching those methods countervails the power reduction that could be accomplished. 
+
+%With respect to the ICFO,  although, its architecture proves to be an efficient method in terms of hardware resources, the performance 
+
+
+%of the algorithm under more adverse conditions is already to be determined. Time synchronization algorithms are not always perfect and leave a residual time offset that has a detrimental effect on the frequency offset estimation algorithm used, possible solutions, impact on hardware and system functioning as well as performance in conjunction with time synchronization algorithms are yet to be studied.
+
+%While the FFT architecture attains the requirements of the MR-OFDM mode for the IEEE802.15.4g transceiver, the final version of this work may present improvements/modifications in its architecture.
+
+%Power estimation of the proposed methods is also scheduled, since this is a critical parameter in the design.  
+
+%Detailed circuit description, HDL implementation methodology, FPGA synthesis results, simulation under several conditions are planned as future tasks as well.
+
+
+This work was hosted and sponsored by ELDORADO research Institute
+Under the supervision of Phd. Eduardo Lima responsible for the project.
+
+

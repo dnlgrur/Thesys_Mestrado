@@ -1,0 +1,193 @@
+% FIXME Ao final, deixe descomentada a linha correspondente ao numero de paginas
+% que a sua defesa possui.
+\documentclass[12pt, letterpaper, oneside]{book}  % Para menos de 100 paginas.
+% \documentclass[12pt, letterpaper, twoside]{book}  % Para mais de 100 paginas.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Configuração: pacotes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{pacotes}  % Arquivo com os pacotes.
+
+\makeglossaries 
+
+\usepackage{acro}
+\usepackage{array, booktabs, makecell}
+\usepackage{subcaption}
+
+% probably a good idea for the nomenclature entries:
+\acsetup{first-style=short}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Configuração: dados pessoais %%%%%%%%%%%%%%%%%%%%%%%%%
+% FIXME Substituir 'Nome completo do aluno' pelo seu nome.
+\newcommand{\autor}{Daniel Garcia Urdaneta}
+% FIXME Se for do sexo feminino, descomente a linha a seguir.
+% \def\femaleAuthor{}
+
+% FIXME Substituir 'Título da defesa' pelo título da defesa.
+\newcommand{\titulo}{Implementation of a Fast Fourier
+Transform and an Integer Carrier
+Frequency Offset architecture for 
+IEEE802.15.4g standard}
+% FIXME Se estiver no programa de mestrado, descomente a linha a seguir.
+% \def\mestrado{}
+% FIXME Deixe descomente apenas a linha referente ao departamento.
+% \def\matematica{}
+\def\aplicada{}
+% \def\estatistica{}
+
+% FIXME Substituir 'Nome completo do orientador' pelo nome completo do seu
+% orientador.
+\newcommand{\orientador}{Prof. Dr. Luís Geraldo Pedroso Meloni}
+% FIXME Se for orientado por uma mulher, descomente a linha a seguir.
+% \def\femaleOrientador{}
+
+% FIXME Substituir 'Nome completo do coorientador' pelo nome completo do seu
+% coorientador. Caso não tenha coorientador, comente a linha a seguir.
+\newcommand{\coorientador}{Dr. Eduardo Rodrigues de Lima}
+% FIXME Se for coorientado por uma mulher, descomente a linha a seguir.
+% \def\femaleCoorientador{}
+
+
+% FIXME Substituir 'Ano' pelo ano em que ocorreu sua defesa.
+\newcommand{\ano}{2018}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Configuração: definições %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{configuracao}  % Arquivo com algumas configurações.
+\input{abreviacoes}
+%\input{glossario}
+%%%%%%%%%%%%%%%%%%%%%%%%%% Início do texto da defesa %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\begin{document}
+
+\selectlanguage{english}
+% WARNING Todas as paginas deverão ser numeradas.
+%
+% As paginas iniciais são numeradas com algoritmos romanos em sua forma
+% minuscula.
+\frontmatter
+%
+\input{capa}  % Não edite esse arquivo.
+\newpage\mbox{}\thispagestyle{plain}\newpage  % Pagina em branco.
+%
+% WARNING A folha de rosto precisa ser assinada pelos orientadores.
+% FIXME Substitua arquivo folha-de-rosto.pdf por uma copia escaneada, comente
+% esta linha e descomente a próxima.
+\input{folha-de-rosto}
+% \includepdf{folha-de-rosto.pdf}
+%
+% WARNING A ficha catalográfica deve estar no verso da folha de rosto.
+% FIXME O arquivo ficha-catalografica.pdf deve ser sobrescrito com uma cópia
+% do arquivo pdf que a biblioteca lhe enviar.
+%\includepdf{ficha-catalografica}
+\newpage\mbox{}\thispagestyle{plain}\newpage  % Pagina em branco.
+% WARNING A folha de aprovação deve ser assinada pelos membros da banca apos a
+% defesa.
+% FIXME Substitua o arquivo folha-de-aprovacao.pdf por uma copia escaneada.
+\includepdf{folha-de-aprovacao}
+\chapter*{}  % Capítulo vazio.
+
+
+\input{abstract}
+
+\newpage\mbox{}\thispagestyle{plain}\newpage  % Pagina em branco.
+
+\vspace{.1\textheight}
+%\input{resumo}
+%
+\tableofcontents
+\addcontentsline{toc}{chapter}{Introduction}
+\printglossary
+%
+% FIXME Se não for incluir a dedicatória, comentar a linha abaixo.
+%\input{dedicatoria}
+%
+% FIXME Se não for incluir os agradecimentos, comentar a linha abaixo.
+%\input{agradecimentos}
+%
+% FIXME Comentar a linha abaixo se não desejar listar as figuras
+% apresentadas.
+%\renewcommand{\listfigurename}{Lista de Ilustrações}  % CCPG 228/2013
+\listoffigures
+%
+% FIXME Comentar a linha abaixo se não desejar listar as tabelas
+% apresentadas.
+\listoftables
+%
+% FIXME Comentar a linha abaixo de não for apresentar as
+% abreviações e siglas utilizadas.
+
+%
+% FIXME Comentar a linha abaixo se não for apresentar os
+% símbolos utilizados.
+%\input{simbolos}
+\newpage
+\printacronyms[include-classes=abbrev,name=Acronyms]
+%
+% FIXME Comentar a linha abaixo se não desejar listar os algoritmos
+% apresentados.
+%\listofalgorithms
+%
+
+% FIXME Comentar a linha abaixo se não desejar listar os trechos de código
+% apresentados.
+%\lstlistoflistings
+%
+% As paginas com o conteúdo da tese são numeradas com algoritmos arábicos.
+\mainmatter
+%
+% FIXME Remover as 3 linhas abaixo.
+% \input{ex_cap01_introduction}
+\input{ex_cap01_introduction}
+  \input{ex_cap08_OFDM}
+  \input{ex_cap02_iot_ieee802}
+  \input{ex_cap03_ASIC}
+  \input{ex_cap04_dft_fft}
+  \input{ex_cap05_fft_arq}
+  \input{ex_cap06_icfo}
+  \input{ex_cap07_asic}
+  \input{ex_cap07_conclusions}
+
+
+
+
+%
+% TODO Inserir os arquivos referentes ao corpo da tese.
+%
+% Referência bibliográfica.
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Reference}
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,tese}
+%\printbibliography[title=Referências]
+%
+% FIXME Se não for utilizar apêndices (o glossario é um apêndice), comentar a
+% linha abaixo.
+\appendix
+% FIXME Remover as 4 linha abaixo.
+
+% \input{ex_ape1}
+% \input{ex_ape2}
+% \input{ex_ape3}
+% \input{ex_ape4}
+% TODO Inserir os arquivos referentes aos apêndices.
+%
+% TODO Se não for utilizar anexos nem uma licença Creative Commons, comentar a linha abaixo.
+\annex
+% FIXME Remover a linha abaixo.
+%\input{ex_ane1}
+% TODO Inserir os arquivos referentes aos anexos.
+%
+% FIXME Escolher, opcionalmente, uma das licença Creative Commons abaixo.
+% Para isso remova a linha correspondente a licença não desejada.
+% \input{cc-by}  % Creative Commons Atribuição 3.0 Não Adaptada
+% \input{cc-by-sa}  % Creative Commons AtribuiçãoCompartilhaIgual 3.0 Não Adaptada
+% %
+\clearpage
+\backmatter
+\phantomsection
+\addcontentsline{toc}{chapter}{Índice Remissivo}
+\printindex
+\end{document}

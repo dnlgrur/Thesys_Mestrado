@@ -1,0 +1,60 @@
+\chapter*{Introduction}
+
+The network of interconnected objects also known as Internet of Things (\ac{iot}) has been a subject many studies in recent years. This new kind of networks is composed of sensors and actuators that gathers information and interact with the physical world.  The needs of \ac{iot} impose lots of challenges and carry with them new and specialized communication protocols. Wi-SUN Alliance is among the many communication groups working to develop protocols and standards to overcome the challenges presented by the \ac{iot}. It promotes the adoption of open industry standards for Wireless Smart Ubiquitous Network (Wi-SUN). 
+
+%Smart Metering utility networks allows monitoring and control of a utility system, they specify devices to operate in very large scale, low power wireless applications~\cite{sun_std_2012}. 
+
+% The Institute of Electrical and Electronics Engineers (\ac{ieee}) released in $2012$ the IEEE802.15.4g standard~\cite{sun_std_2012}, initially targeted to the needs of Smart Metering utility networks SUN (network that allow monitoring and control of an utility system) and more recently adopted for \ac{iot} solutions by the WI-SUN alliance. The IEEE802.15.4g standard is a amendment to the IEEE802.15.4 standard, it was designed to cope with current and future specific communications needs for SUN and has three operation modes,
+% including the Multi-rate Multi-Regional Orthogonal Frequency Division Multiplexing (\ac{mrofdm}) mode. The \ac{mrofdm} mode employs the Orthogonal Frequency Division Multiplexing (\ac{ofdm}) modulation scheme,  that usually makes use of the Discrete Fourier Transform  (\ac{dft}) and Inverse Discrete Fourier Transform (\ac{idft}) to implement \ac{ofdm} transceivers. The implementation of the \ac{dft}/\ac{idft} in its original form consumes a lot of hardware resources, making it impractical.
+
+ The Institute of Electrical and Electronics Engineers (\ac{ieee}) released in $2012$ the IEEE802.15.4g standard~\cite{sun_std_2012}, IEEE802.15.4g standard was adopted by the Wi-SUN alliance as the physical layer of Field Area Network (FAN)  and  Home Area Network (HAN) profile of Wi-SUN. FAN was initially intended to Smart Utility Networks but recently, due its characteristics its use was extended to \ac{iot} applications, thus the acronym now stands for Smart Ubiquitous Networks.   IEEE802.15.4g standard is an amendment to IEEE802.15.4, it was designed to cope with current and future specific communications needs for SUN and has three operation modes, including the Multi-Rate Multi-Regional Orthogonal Frequency Division Multiplexing (\ac{mrofdm}) mode. \ac{mrofdm} mode employs Orthogonal Frequency Division Multiplexing (\ac{ofdm}) modulation scheme,  that in general makes use of Discrete Fourier Transform  (\ac{dft}) and Inverse Discrete Fourier Transform (\ac{idft}) to implement \ac{ofdm} modems. The implementation of the \ac{dft}/\ac{idft} in its original form consumes a significant amount of hardware resources, making it impractical.
+
+ 
+ %initially targeted to the needs of Smart Metering utility networks SUN (network that allow monitoring and control of an utility system) and more recently adopted for \ac{iot} solutions by the WI-SUN alliance. The 
+Consequently, algorithms as well as architectures that compute the \ac{dft} in a less complex manner are needed. Fast Fourier Transform (\ac{fft}) is a well known algorithm that reduces the computing complexity of the \ac{dft} algorithm, however its hardware implementation still consumes a large amount of hardware. This work makes use of 
+implementations methods found in the literature that are believed to reduce the complexity of the hardware implementation. The implementation in a Field Programmable Gate Array \ac{fpga} of the proposed method, implementation complexity achieved a low hardware resource usage, when compared with Altera's FFT implementation, while attaining the IEEE802.15.4g requirements. 
+
+
+%Consequently, algorithms as well as architectures that compute the \ac{dft} in a less complex manner are needed. The Fast Fourier Transform (\ac{fft}) is a well known algorithm that reduces the computing complexity of the \ac{dft} algorithm, however its hardware implementation still relies on complex multipliers, consuming a large amount of hardware. This work gathers 
+%implementations methods found in the literature that are believed to reduce the complexity of the hardware implementation. Prototyped in a Field Programmable Gate Array \ac{fpga},  it probes to reduce hardware resources when compared with Altera's implementation, while attaining the IEEE802.15.4g requirements. 
+
+
+Another important issue concerning the implementation of OFDM modems is that of the optimal and robust implementation methods for the synchronization and frequency error correction at the receiver side. For this reason the second part of this work presents a simple integer frequency error estimation method based on the DFT usage, that is believed to reduce the hardware complexity. The simplification is accomplished by a smart reuse of the available hardware, involving the FFT, that makes possible to implement the correlation operation with a lot less resources than the typical implementation. The proposed estimation/corrector method can be adopted in others OFDM-based systems as well, since it exploits the OFDM structure to tackle the problem. 
+
+%Besides the hardware implementation challenges presented the FFT algorithm, OFDM systems present challenges when looking for optimal synchronization implementations. For this reason the second part of this work present a simple frequency error correction and estimation method based on the DFT computation process that is believed to reduce the hardware complexity. The simplification is accomplished by a smart reuse of the available hardware, involving the FFT, that makes possible to implement the correlation operation (the typical method used to compute frequency errors) with a lot less resources than the typical implementation. The proposed estimation/corrector method can be adopted in others OFDM-based systems as well, since it exploits the OFDM structure to tackle the problem. 
+
+
+
+
+This thesis is organized as follows:
+
+\begin{itemize}
+\item In Chapter 1, a theoretical background of OFDM is presented, deriving the necessity of the IDFT/DFT and showing some of the OFDM synchronization issues.  
+\item Chapter 2 is an overview of the IEEE802.15.4g standard, focusing on the technical aspects of MR-OFDM mode, the modem architecture as well as the frame structure are described.  
+\item In Chapter 3, an overview of Application Specific Integrated Circuit (\ac{asic}) design process is presented. A briefly description of the stages in the process are reviewed. 
+\item Chapter 4 looks into the FFT algorithm, the well known Radix-2 Fast algorithm is derived from the original DFT equation. 
+\item Chapter 5 shows the proposed FFT architecture, showing the methods implemented that simplify the hardware implementation, as well as the results of its FPGA implementation.
+\item  Chapter 6 presents an FFT-based ICFO estimation architecture. FPGA implementation results are also shown. This chapter also explores the problem of the ICFO estimation in conjunction with the Symbol Time Offset (\ac{sto}).
+\item  Chapter 7 presents the ASIC implementations results.
+\end{itemize}
+
+Finally conclusions and future work are presented. 
+
+
+  %Finally conclusions and future work encloses this thesis. 
+
+% DFT/IDFT in a faster and less complex manner, the so called
+% Fast Fourier Transform (FFT) algorithms, are mandatory. For
+% this work, a reduced logic variable length architecture is proposed for the IEEE802.15.4g MR-OFDM PHY. The architecture is based on the most widely used FFT algorithm, the so called Radix 2 proposed
+%  by Cooley Tukey in~\cite{cooley_1965}. 
+
+%  OFDM is widely used in the emerging generations of high speed
+% communication systems due to its robustness against frequency-selective fading 
+% in a multipath channel as well as the reduction of the equalizer complexity.
+% On the other hand,  OFDM has  
+%  high sensitivity to frequency offsets and phase noise \cite{prasad2004ofdm}. 
+% The uncertainty in carrier frequency causes a shift in frequency domain, 
+% referred to as frequency offset, and consequently a loss of orthogonality between
+% subcarriers. This frequency offset is divided in two portions, namely fractional and integer frequency errors. The fractional error is related to errors smaller than the distance between two OFDM subcarriers, while the integer portion occurs in multiples of that value.  In order to overcome the integer frequency errors,  an ICFO Estimator and Corrector method is proposed. The estimation if performed correlating the Long Training Field LTF found in the synchronization header of the Physical Protocol Data Unit PPDU of IEEE802.15.4g with its corrupted version. Taking advantage of the OFDM receiver structure and using the cross-correlation theorem to perform the correlation, a considerable amount of hardware resources can be saved. 
+
+

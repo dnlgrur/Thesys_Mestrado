@@ -1,0 +1,209 @@
+\chapter{ASIC Results}
+
+\section{Synthesys Results }
+
+\subsection{FFT results}
+
+The proposed design was synthesized on the Cadence Encounter RTL Compiler version 14.20 for frequencies raging from 1.3333 MHz (maximum FFT/IFFT Sample Rate for IEEE802.15.4g) up to 200 MHz. The Worst time Slack\footnote{The difference between the required time and the arrival time.} (WS), amount of required cells \footnote{A cell is the minimum building block used by the synthesis tool. Unlike ALMs in FPGA, where there is only one type, the minimum building block in the Encounter RTL Compiler is of many types and can be composed of a few or several logic gates. Different kind of cells can be found in different technologies. Unfortunately, cells characteristics are proprietary and confidential, so no further information can be provided.}, area occupation and power consumption of the entire FFT/IFFT block, for each of the clock frequencies, are listed in Table\ref{table:results_logical_synthesis_fft}. Table \ref{table:results_logical_synthesis_icfo} show the results for the same parameters for the ICFO implementation. 
+
+% \begin{table}[htb!]%\tiny
+% \caption{Logical synthesis results for $65nm$ CMOS for the FFT Architecture}
+% \label{table:results_logical_synthesis_fft}
+% \centering
+% \begin{tabular}{c c c c c c}
+% \hline
+% \textbf{Frequency}	&\textbf{Timing (WNS)}	&\textbf{Instances}	&\textbf{Area} &\textbf{Leakage Power} &\textbf{Internal Power}\\
+% \textbf{MHz}		&\boldmath$ps$		&			&\boldmath${\mu}m^2$	&\boldmath${\mu}W$	&\boldmath${\mu}W$\\
+% \hline
+% $1.333$			&$  744419 $		&$ 8691 $		&$ 72321.77 $		&$ 18.56 $		&$  146.30 $\\
+% $3.999$			&$ 2444294 $		&$ 8703 $		&$ 72319.85 $		&$ 18.59 $		&$  251.11 $\\
+% $20$			&$   44231 $		&$ 8706 $		&$ 72327.53 $		&$ 18.61 $		&$  1910.19 $\\
+% $50$			&$   14231 $		&$ 8699 $		&$ 72324.65 $		&$ 18.58 $		&$  4629.94 $\\
+% $100$			&$    4162 $		&$ 8698 $		&$ 72353.13 $		&$ 18.54 $		&$  8487.60 $\\
+% $160$			&$     271 $		&$ 9513 $		&$ 72807.53 $		&$ 18.64 $		&$ 13785.80 $\\
+% $200$			&$       2 $		&$ 10155 $	       	&$ 73015.21 $		&$ 18.44 $		&$ 16512.72 $\\
+% \hline
+% % \multicolumn{6}{l}{1.3333 MHz is the minimum FFT/IFFT Sample Rate for IEEE802.15.4g.}\\
+% \end{tabular}
+% \end{table}
+
+\begin{table}[htb!]
+\caption{Logical synthesis results for $65nm$ CMOS for the FFT Architecture}
+\label{table:results_logical_synthesis_fft}
+\centering
+\begin{tabular}{c c c c c c c}
+\toprule
+\textbf{Freq} & \textbf{Cells} & \textbf{CellsArea} & \textbf{WS}  & \textbf{Leakage} 	& \textbf{Dynamic} & \textbf{Total} \\ 
+\textbf{MHz}  &              & \boldmath${\mu}m^2$	& \boldmath$ps$ & \boldmath${\mu}W$ & \boldmath${\mu}W$ & \boldmath${\mu}W$ \\ \hline
+1,333         & 13057          & 74864              & 523179       & 21,098        & 220,069       & 241,169     \\
+2,5           & 13047          & 74850              & 278166       & 21,086        & 261,741       & 282,828     \\
+5             & 13060          & 74856              & 138166       & 20,996        & 385,393       & 406,390     \\
+10            & 13046          & 74847              & $68166$      & 20,973        & 1170,029       & 1191,003    \\
+20            & 13033          & 74836              & $33166$      & 20,922        & 2116,889      & 2137,811    \\
+40            & 13030          & 74834              & $14537$      & 20,963        & 3699,561      & 3720,524    \\
+80            & 13108          & 74902              & $3759$       & 21,070        & 6767,198      & 6788,268    \\
+100           & 13880          & 75326              & $2603$       & 21,082        & 8368,232      & 8389,314    \\
+166           & 16247          & 78345              & 166          & 22,655        & 14133,956      & 14156,611   \\
+200           & 16849          & 79965              & -6           & 23,344        & 17647,131     & 17670,475   \\ \hline
+\end{tabular}
+\end{table}
+
+
+% Table~\ref{table:results_physical_synthesis_fft} lists the physical synthesis 
+% results of the FFT/IFFT block,  using $65nm$ CMOS technology and clock frequencies from $1.333 MHz$ up to $200 MHz$. 
+
+
+% \begin{table}[htb!]\footnotesize
+% \caption{Physical synthesis results for $65nm$ CMOS for the FFT Architecture}
+% \label{table:results_physical_synthesis_fft}
+% \centering
+% \begin{tabular}{c c c c c c c}
+% \hline
+% \textbf{Frequency}	& \textbf{Gates}& \textbf{Density} 	& \textbf{Internal Power}& \textbf{Switching Power} & \textbf{Leakage Power} & \textbf{Total Power}\\
+% \textbf{MHz}    	&		& \boldmath$\%$		& \boldmath${\mu}W$	 & \boldmath${\mu}W$	    & \boldmath${\mu}W$	     & \boldmath${\mu}W$\\
+% \hline
+% $1.333$			& $ 21805 $	& $ 67.48 $		& $   11.40 $		 & $    7.88 $		    & $ 9.24 $		     & $  28.52$\\
+% $3.999$			& $ 21803 $	& $ 67.47 $		& $   34.22 $ 		 & $   23.60 $		    & $ 9.24 $		     & $  67.05$\\
+% $20$			& $ 21811 $	& $ 67.49 $		& $  170.81 $ 		 & $  118.45 $		    & $ 9.24 $		     & $ 298.50$\\
+% $50$			& $ 21798 $	& $ 67.47 $		& $  427.96 $ 		 & $  293.67 $		    & $ 9.24 $		     & $ 730.87$\\
+% $100$			& $ 21825 $	& $ 67.51 $		& $  870.63 $ 		 & $  639.07 $		    & $ 9.22 $		     & $ 1518.92$\\
+% $160$			& $ 22293 $	& $ 68.29 $		& $ 1409.02 $ 		 & $ 1077.83 $		    & $ 9.29 $		     & $ 2496.14$\\
+% $200$			& $ 22438 $	& $ 68.53 $		& $ 1660.25 $ 		 & $ 1389.59 $		    & $ 9.22 $		     & $ 3059.06$\\
+% \hline
+% % \multicolumn{6}{l}{1.3333 MHz is the minimum FFT/IFFT Sample Rate for IEEE802.15.4g.}\\
+% \end{tabular}
+% \end{table}
+
+\subsection{ICFO results} 
+
+
+% \begin{table}[htb!]
+% \caption{Logical synthesis results for $65nm$ CMOS for the ICFO Architecture}
+% \label{table:results_logical_synthesis_icfo}
+% \centering
+% \begin{tabular}{c c c c c c c}
+% \toprule
+% \textbf{Freq} & \textbf{Cells} & \textbf{CellsArea} & \textbf{WS}  & \textbf{Leakage} 	& \textbf{Dynamic} & \textbf{Total} \\ 
+% \textbf{MHz}  &              & \boldmath${\mu}m^2$	& \boldmath$ps$ & \boldmath${\mu}W$ & \boldmath${\mu}W$ & \boldmath${\mu}W$ \\ \hline
+% 1,333         & 13057          & 74864              & 523179       & 21,098        & 220,069       & 241,169     \\
+% 2,5           & 13047          & 74850              & 278166       & 21,086        & 261,741       & 282,828     \\
+% 5             & 13060          & 74856              & 138166       & 20,996        & 385,393       & 406,390     \\
+% 10            & 13046          & 74847              & $68166$      & 20,973        & 1170,029       & 1191,003    \\
+% 20            & 13033          & 74836              & $33166$      & 20,922        & 2116,889      & 2137,811    \\
+% 40            & 13030          & 74834              & $14537$      & 20,963        & 3699,561      & 3720,524    \\
+% 80            & 13108          & 74902              & $3759$       & 21,070        & 6767,198      & 6788,268    \\
+% 100           & 13880          & 75326              & $2603$       & 21,082        & 8368,232      & 8389,314    \\
+% 166           & 16247          & 78345              & 166          & 22,655        & 14133,956      & 14156,611   \\
+% 200           & 16849          & 79965              & -6           & 23,344        & 17647,131     & 17670,475   \\ \hline
+% \end{tabular}
+% \end{table}
+
+
+\begin{table}[htb!]
+\caption{Logical synthesis results for $65nm$ CMOS for the ICFO Architecture}
+\label{table:results_logical_synthesis_icfo}
+\centering
+\begin{tabular}{c c c c c c c}
+\toprule
+\textbf{Freq} & \textbf{Cells} & \textbf{CellsArea} & \textbf{WS}  & \textbf{Leakage} 	& \textbf{Dynamic} & \textbf{Total} \\ 
+\textbf{MHz}  &              & \boldmath${\mu}m^2$	& \boldmath$ps$ & \boldmath${\mu}W$ & \boldmath${\mu}W$ & \boldmath${\mu}W$ \\ \hline
+1,333         & 31110	& 	154046      & 515257 	 &  45,634    &   208,834       &   254,469   \\
+2,5	      &	31100	&	154048	    & 273744	 &  45,638    &	  246,130	&   291,769   \\
+5	      &	31114	&	154052	    & 135728	 &  45,633    &	  332,961	&   378,595   \\
+10	      &	31106	&	154047	    & 65728	 &  45,882    &	 1643,020	&  1688,902    \\
+20	      &	31105	&	154050	    & 30728	 &  45,639    &	 2789,674	&  2835,313   \\
+40	      &	31134	&	154066	    & 11544	 &  45,435    &	 5764,384	&  5809,820   \\
+80	      &	31749	&	154568	    & 2048	 &  45,636    &	11227,396	& 11273,032   \\
+100	      &	32980	&	155281	    & 1221	 &  45,900    &	13172,190	& 13218,099   \\
+166	      &	37999	&	161416	    & 34	 &  48,768    &	22944,270	& 22993,039   \\
+200	      &	39895	&	165869	    & -43	 &  50,818    &	28016,074	& 28066,893   \\ \hline
+\end{tabular}
+\end{table}
+
+
+It is worth noticing that the designs can work until clock frequencies of 166 MHz without a negative worst slack, although the 
+maximum frequency required for the entire MR-OFDM transceiver is of 1.33 MHz, as shown in table~\ref{table_mrofdm}, on chapter 2.
+The leakage power of the ICFO is greater than the leakage power as expected since the area of this block is greater than the area occupied by the FFT block.  
+
+% Table~\ref{table:results_physical_synthesis_fft} lists the physical synthesis 
+% results of the ICFO block,  using $65nm$ CMOS technology and clock frequencies from $1.333 MHz$ up to $200 MHz$. 
+
+% \begin{table}[htb!]\footnotesize
+% \caption{Physical synthesis results for $65nm$ CMOS for the ICFO Architecture}
+% \label{table:results_physical_synthesis_icfo}
+% \centering
+% \begin{tabular}{c c c c c c c}
+% \hline
+% \textbf{Frequency}	& \textbf{Gates}& \textbf{Density} 	& \textbf{Internal Power}& \textbf{Switching Power} & \textbf{Leakage Power} & \textbf{Total Power}\\
+% \textbf{MHz}    	&		& \boldmath$\%$		& \boldmath${\mu}W$	 & \boldmath${\mu}W$	    & \boldmath${\mu}W$	     & \boldmath${\mu}W$\\
+% \hline
+% $1.333$			& $ 21805 $	& $ 67.48 $		& $   11.40 $		 & $    7.88 $		    & $ 9.24 $		     & $  28.52$\\
+% $3.999$			& $ 21803 $	& $ 67.47 $		& $   34.22 $ 		 & $   23.60 $		    & $ 9.24 $		     & $  67.05$\\
+% $20$			& $ 21811 $	& $ 67.49 $		& $  170.81 $ 		 & $  118.45 $		    & $ 9.24 $		     & $ 298.50$\\
+% $50$			& $ 21798 $	& $ 67.47 $		& $  427.96 $ 		 & $  293.67 $		    & $ 9.24 $		     & $ 730.87$\\
+% $100$			& $ 21825 $	& $ 67.51 $		& $  870.63 $ 		 & $  639.07 $		    & $ 9.22 $		     & $ 1518.92$\\
+% $160$			& $ 22293 $	& $ 68.29 $		& $ 1409.02 $ 		 & $ 1077.83 $		    & $ 9.29 $		     & $ 2496.14$\\
+% $200$			& $ 22438 $	& $ 68.53 $		& $ 1660.25 $ 		 & $ 1389.59 $		    & $ 9.22 $		     & $ 3059.06$\\
+% \hline
+% % \multicolumn{6}{l}{1.3333 MHz is the minimum FFT/IFFT Sample Rate for IEEE802.15.4g.}\\
+% \end{tabular}
+% \end{table}
+
+% The sections presents the project logically and physically 
+% synthesized using $Encounter\textregistered\ RTL\ Compiler$, providing 
+% preliminary results in ASIC resources estimation. 
+% Table~\ref{table:results_logical_synthesis_icfo} shows the logic synthesis for frequencies
+% from 1.3333 MHz up to 100 MHz, including analysis of timing, area and power for each of
+% the clock frequencies.
+
+% \begin{table}[htb!]%\scriptsize
+% \caption{Logical synthesis results for $65nm$ CMOS for the ICFO}
+% \label{table:results_logical_synthesis_icfo}
+% \centering
+% \begin{tabular}{c c c c c c}
+% \hline
+% \textbf{Frequency}	&\textbf{Timing (WNS)}	&\textbf{Instances}	&\textbf{Area}		&\textbf{Leakage Power}	&\textbf{Internal Power}\\
+% \textbf{MHz}		&\boldmath$ps$		&			&\boldmath${\mu}m^2$	&\boldmath${\mu}W$	&\boldmath${\mu}W$\\
+% \hline
+% $1.333$		       &$ 737401  $		&$ 25561 $		&$ 141524.141 $		&$ 42.625 $	     &$	 174.422	    $\\	 
+% $3.999$		       &$ 237276  $		&$ 25557 $		&$ 141522.541 $		&$ 42.065 $	     &$	 258.024	    $\\	 
+% $62.5$		       &$    3624 $		&$ 25652 $		&$ 141608.621 $		&$ 42.014 $	     &$	 7574.676	 $\\ 
+% $100$		       &$    882  $		&$ 27871 $		&$ 143040.941 $		&$ 42.243 $	     &$	 11528.148	 $\\ 
+% \hline
+% % \multicolumn{6}{l}{1.3333 MHz is the minimum FFT/IFFT Sample Rate for IEEE802.15.4g.}\\
+% \end{tabular}
+% \end{table}
+% % 
+
+% Table~\ref{table:results_physical_synthesis_icfo} lists the physical synthesis 
+% results of the ICFO block, for a $520 \mu m \times 500 \mu m$ die 
+% ($260000 \mu m^2$), using $65nm$ CMOS technology and the clock frequencies mentioned.
+
+% \begin{table}[htb!]%\scriptsize
+% \caption{Physical synthesis results for $65nm$ CMOS for the ICFO}
+% \label{table:results_physical_synthesis_icfo}
+% \centering
+% \begin{tabular}{c c c c c c c}
+% \hline
+
+% \textbf{Frequency} & \textbf{Gates} & \textbf{Density} & \multicolumn{1}{c}{\textbf{}} & \textbf{Power \boldmath${\mu}W$} & \textbf{}        & \textbf{}      \\
+% \textbf{MHz}       & \textbf{}      & \textbf{\%}      & \textbf{Internal}             & \textbf{Switching}  & \textbf{Leakage} & \textbf{Total} \\ 
+
+
+% %\textbf{Frequency}	& \textbf{Gates}& \textbf{Density} 	& \textbf{Internal Power}& \textbf{Switching Power} & \textbf{Leakage Power} & \textbf{Total Power}\\
+% %\textbf{MHz}    	&		& \boldmath$\%$		& \boldmath${\mu}W$	 & \boldmath${\mu}W$	    & \boldmath${\mu}W$	     & \boldmath${\mu}W$\\
+% \hline
+% $1.333$			& $147420  $	&  $69.2	$		& $   125.14 $		 & $    59.88 $		    & $ 40.98 $		     & $   226.02$\\
+% $3.999$			& $147419  $	&  $69.2	$		& $   375.44 $		 & $   177.53 $		    & $ 40.98 $		     & $   593.95$\\
+% $62.5$			& $147508  $	&  $69.2	$		& $  5826.79 $		 & $  4756.26 $		    & $ 40.92 $		     & $  8597.70$\\
+% $100$			& $149000  $	&  $70.1	$		& $  8989.83 $		 & $  2729.98 $		    & $ 41.05 $		     & $ 13787.15$\\
+% $160$			& $155623  $	&  $74.1	$		& $ 15520.43 $		 & $  9411.50 $		    & $ 44.07 $		     & $ 24976.01$\\
+% $200$			& $159770  $	&  $76.6	$		& $ 15520.43 $		 & $  9411.50 $		    & $ 44.07 $		     & $ 24976.01$\\
+% \hline
+% % \multicolumn{6}{l}{1.3333 MHz is the minimum FFT/IFFT Sample Rate for IEEE802.15.4g.}\\
+% \end{tabular}
+% \end{table}
+
+%\section{Backend Synthesys Results}
+
+%\section{Power Results}
